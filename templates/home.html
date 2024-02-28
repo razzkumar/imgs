@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Assets</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .gallery {
+      box-sizing: border-box;
+      margin: 10px;
+    }
+
+    .gallery a {
+      text-decoration: none;
+    }
+
+    .gallery img {
+      max-width: 250px;
+      width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="gallery-container">
+    {{ range .Assets }}
+    <div class="gallery">
+      <a target="_blank" href="{{ .Path }}">
+        <img src="{{ .Path }}" alt="{{ .Name }}">
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</body>
+
+</html>
